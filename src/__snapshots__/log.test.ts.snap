@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`log logs json 1`] = `
+[
+  200,
+  "200 POST /json?key=1 (0ms)",
+  {
+    "httpRequest": {
+      "latency": "0ms",
+      "protocol": "HTTP/1.1",
+      "referer": "https://example.com/",
+      "remoteIp": "::ffff:127.0.0.1",
+      "requestMethod": "POST",
+      "requestSize": "224",
+      "requestUrl": "http://127.0.0.1:50000/json?key=1",
+      "responseSize": "216",
+      "serverIp": "::ffff:127.0.0.1:50000",
+      "status": 200,
+      "userAgent": "curl/7.64.1",
+    },
+    "request": {
+      "body": {
+        "test": 1,
+      },
+      "headers": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "application/json",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+    },
+    "response": {
+      "body": {
+        "test": 1,
+      },
+      "headers": {
+        "content-length": "10",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/"a-0IjPMzN9x5tJczAzOeVnVWcl4yo"",
+        "x-powered-by": "Express",
+      },
+    },
+  },
+]
+`;
+
+exports[`log logs text 1`] = `
+[
+  200,
+  "200 POST /text?key=1 (0ms)",
+  {
+    "httpRequest": {
+      "latency": "0ms",
+      "protocol": "HTTP/1.1",
+      "referer": "https://example.com/",
+      "remoteIp": "::ffff:127.0.0.1",
+      "requestMethod": "POST",
+      "requestSize": "218",
+      "requestUrl": "http://127.0.0.1:50000/text?key=1",
+      "responseSize": "212",
+      "serverIp": "::ffff:127.0.0.1:50000",
+      "status": 200,
+      "userAgent": "curl/7.64.1",
+    },
+    "request": {
+      "body": "{ "test": 1 }",
+      "headers": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "text/plain",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+    },
+    "response": {
+      "body": "{ "test": 1 }",
+      "headers": {
+        "content-length": "13",
+        "content-type": "text/html; charset=utf-8",
+        "etag": "W/"d-1RPzMXJoVFsid1wYU/S8C5v43Kc"",
+        "x-powered-by": "Express",
+      },
+    },
+  },
+]
+`;
