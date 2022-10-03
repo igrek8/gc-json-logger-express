@@ -35,14 +35,21 @@ const app = express();
 Logger.setLevel(Severity.DEBUG);
 
 /* Filter sensitive data or transform log entry */
-app.use(log((_req, _res, entry) => ({ severity: Severity.INFO, ...entry })));
+app.use(
+  log((_req, _res, entry) => {
+    const severity = entry.meta.httpRequest?.status >= 500 ? Severity.ERROR : entry.severity;
+    return { ...entry, severity };
+  })
+);
 
 app.use(express.text());
 app.use(express.json());
-app.use((req, res) => res.status(200).send(req.body));
+app.use((req, res) => res.status(500).send(req.body));
 
 app.listen(3000);
 ```
+
+### Mock Request
 
 ```bash
 curl -X POST "http://localhost:3000/echo" \
@@ -50,25 +57,42 @@ curl -X POST "http://localhost:3000/echo" \
   -d 'Hello world!'
 ```
 
+### Logged Request
+
 ```json
 {
   "severity": "INFO",
   "timestamp": "2022-01-01T00:00:00.000Z",
-  "message": "200 POST /echo (19ms)",
+  "message": "200 POST /echo",
   "httpRequest": {
     "protocol": "HTTP/1.1",
-    "latency": "19ms",
     "requestSize": "141",
     "remoteIp": "::ffff:127.0.0.1",
     "requestUrl": "http://localhost:3000/echo",
     "requestMethod": "POST",
-    "responseSize": "239",
     "userAgent": "curl/7.79.1",
-    "serverIp": "::ffff:127.0.0.1:3000",
-    "status": 200
+    "serverIp": "::ffff:127.0.0.1:3000"
   },
   "logging.googleapis.com/operation": {
-    "id": "53d9fbf1-7091-4dfa-a6b9-63e8c505d720"
+    "id": "135af3bd-1cde-4b72-92ac-3106e7514714"
+  }
+}
+```
+
+### Logged Request and Response
+
+```json
+{
+  "severity": "ERROR",
+  "timestamp": "2022-01-01T00:00:00.000Z",
+  "message": "500 POST /echo (13ms)",
+  "httpRequest": {
+    "latency": "13ms",
+    "responseSize": "258",
+    "status": 500
+  },
+  "logging.googleapis.com/operation": {
+    "id": "135af3bd-1cde-4b72-92ac-3106e7514714"
   },
   "meta": {
     "request": {

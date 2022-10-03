@@ -8,10 +8,15 @@ const app = express();
 Logger.setLevel(Severity.DEBUG);
 
 /* Filter sensitive data or transform log entry */
-app.use(log((_req, _res, entry) => ({ severity: Severity.INFO, ...entry })));
+app.use(
+  log((_req, _res, entry) => {
+    const severity = entry.meta.httpRequest?.status >= 500 ? Severity.ERROR : entry.severity;
+    return { ...entry, severity };
+  })
+);
 
 app.use(express.text());
 app.use(express.json());
-app.use((req, res) => res.status(200).send(req.body));
+app.use((req, res) => res.status(500).send(req.body));
 
 app.listen(3000);
