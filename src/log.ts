@@ -9,6 +9,7 @@ const passThrough: LogTransformFunction = (_req, _res, entry) => entry;
 export function log(transform: LogTransformFunction = passThrough) {
   return (req: Request, res: Response, next: NextFunction) => {
     const start = new Date();
+    const logger = Logger.getLogger();
 
     /**
      * Capture outgoing response body
@@ -29,6 +30,28 @@ export function log(transform: LogTransformFunction = passThrough) {
       return res.send(body);
     };
 
+    try {
+      const entry = transform(req, res, {
+        severity: Severity.INFO,
+        message: `${res.statusCode} ${req.method} ${req.url}`,
+        meta: {
+          httpRequest: {
+            protocol: `${req.protocol}/${req.httpVersion}`.toUpperCase(),
+            requestSize: req.socket.bytesRead.toString(),
+            remoteIp: req.ip,
+            requestUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+            requestMethod: req.method,
+            userAgent: req.header('User-Agent')?.toString(),
+            serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
+            referer: req.header('Referer'),
+          },
+        },
+      });
+      logger.log(entry.severity, entry.message, entry.meta);
+    } catch {
+      /* istanbul ignore next */
+    }
+
     res.once('finish', async () => {
       try {
         const end = new Date();
@@ -38,17 +61,9 @@ export function log(transform: LogTransformFunction = passThrough) {
           message: `${res.statusCode} ${req.method} ${req.url} (${latency})`,
           meta: {
             httpRequest: {
-              protocol: `${req.protocol}/${req.httpVersion}`.toUpperCase(),
-              latency: latency,
-              requestSize: req.socket.bytesRead.toString(),
-              remoteIp: req.ip,
-              requestUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
-              requestMethod: req.method,
+              latency,
               responseSize: req.socket.bytesWritten.toString(),
-              userAgent: req.header('User-Agent')?.toString(),
-              serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
               status: res.statusCode,
-              referer: req.header('Referer'),
             },
             request: {
               headers: req.headers,
@@ -60,7 +75,6 @@ export function log(transform: LogTransformFunction = passThrough) {
             },
           },
         });
-        const logger = Logger.getLogger();
         logger.log(entry.severity, entry.message, entry.meta);
       } catch (err) {
         /* istanbul ignore next */

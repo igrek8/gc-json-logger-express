@@ -3,6 +3,6 @@ import { LogRequest } from './LogRequest';
 import { LogResponse } from './LogResponse';
 
 export interface LogEntryMetadata extends ILogEntryMetadata {
-  request: LogRequest;
-  response: LogResponse;
+  request?: LogRequest;
+  response?: LogResponse;
 }

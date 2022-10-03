@@ -24,7 +24,7 @@ describe('log', () => {
     server.close(done);
   });
 
-  it('logs text', async () => {
+  it('supports text endpoint', async () => {
     const write = jest.spyOn(Logger.prototype, 'log');
     write.mockImplementation(() => {});
     await request(server)
@@ -33,10 +33,10 @@ describe('log', () => {
       .set('user-agent', 'curl/7.64.1')
       .set('content-type', 'text/plain')
       .send('{ "test": 1 }');
-    expect(write.mock.calls[0]).toMatchSnapshot();
+    expect(write.mock.calls).toMatchSnapshot();
   });
 
-  it('logs json', async () => {
+  it('supports json endpoint', async () => {
     const write = jest.spyOn(Logger.prototype, 'log');
     write.mockImplementation(() => {});
     await request(server)
@@ -45,6 +45,6 @@ describe('log', () => {
       .set('user-agent', 'curl/7.64.1')
       .set('content-type', 'application/json')
       .send('{ "test": 1 }');
-    expect(write.mock.calls[0]).toMatchSnapshot();
+    expect(write.mock.calls).toMatchSnapshot();
   });
 });
