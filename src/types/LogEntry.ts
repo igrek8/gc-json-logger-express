@@ -4,5 +4,5 @@ import { LogEntryMetadata } from './LogEntryMetadata';
 export interface LogEntry {
   severity: Severity;
   message: string;
-  meta?: LogEntryMetadata;
+  meta: LogEntryMetadata;
 }

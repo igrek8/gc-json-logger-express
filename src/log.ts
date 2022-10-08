@@ -49,18 +49,14 @@ export function log(transform: LogTransformFunction = passThrough) {
             serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
             referer: req.header('Referer'),
           },
-          request: clone({
-            headers: req.headers,
-            body: req.body,
-          }),
-          response: clone({
-            headers: res.getHeaders(),
-            body: _body,
-          }),
+          httpRequestHeaders: clone(req.headers),
+          httpRequestBody: clone(req.body),
+          httpResponseHeaders: clone(res.getHeaders()),
+          httpResponseBody: clone(_body),
         },
       });
       logger.log(entry.severity, entry.message, entry.meta);
-    } catch {
+    } catch (err) {
       /* istanbul ignore next */
     }
 
@@ -80,14 +76,10 @@ export function log(transform: LogTransformFunction = passThrough) {
               responseSize: req.socket.bytesWritten.toString(),
               status: res.statusCode,
             },
-            request: clone({
-              headers: req.headers,
-              body: req.body,
-            }),
-            response: clone({
-              headers: res.getHeaders(),
-              body: _body,
-            }),
+            httpRequestHeaders: clone(req.headers),
+            httpRequestBody: clone(req.body),
+            httpResponseHeaders: clone(res.getHeaders()),
+            httpResponseBody: clone(_body),
           },
         });
         logger.log(entry.severity, entry.message, entry.meta);

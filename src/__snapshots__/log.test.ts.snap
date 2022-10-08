@@ -16,24 +16,22 @@ exports[`log supports json endpoint 1`] = `
         "serverIp": "::ffff:127.0.0.1:50000",
         "userAgent": "curl/7.64.1",
       },
+      "httpRequestBody": undefined,
+      "httpRequestHeaders": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "application/json",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+      "httpResponseBody": undefined,
+      "httpResponseHeaders": {
+        "x-powered-by": "Express",
+      },
       "labels": {
         "event": "http:request",
-      },
-      "request": {
-        "headers": {
-          "accept-encoding": "gzip, deflate",
-          "connection": "close",
-          "content-length": "13",
-          "content-type": "application/json",
-          "host": "127.0.0.1:50000",
-          "referer": "https://example.com/",
-          "user-agent": "curl/7.64.1",
-        },
-      },
-      "response": {
-        "headers": {
-          "x-powered-by": "Express",
-        },
       },
     },
   ],
@@ -46,33 +44,29 @@ exports[`log supports json endpoint 1`] = `
         "responseSize": "216",
         "status": 200,
       },
+      "httpRequestBody": {
+        "test": 1,
+      },
+      "httpRequestHeaders": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "application/json",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+      "httpResponseBody": {
+        "test": 1,
+      },
+      "httpResponseHeaders": {
+        "content-length": "10",
+        "content-type": "application/json; charset=utf-8",
+        "etag": "W/"a-0IjPMzN9x5tJczAzOeVnVWcl4yo"",
+        "x-powered-by": "Express",
+      },
       "labels": {
         "event": "http:response",
-      },
-      "request": {
-        "body": {
-          "test": 1,
-        },
-        "headers": {
-          "accept-encoding": "gzip, deflate",
-          "connection": "close",
-          "content-length": "13",
-          "content-type": "application/json",
-          "host": "127.0.0.1:50000",
-          "referer": "https://example.com/",
-          "user-agent": "curl/7.64.1",
-        },
-      },
-      "response": {
-        "body": {
-          "test": 1,
-        },
-        "headers": {
-          "content-length": "10",
-          "content-type": "application/json; charset=utf-8",
-          "etag": "W/"a-0IjPMzN9x5tJczAzOeVnVWcl4yo"",
-          "x-powered-by": "Express",
-        },
       },
     },
   ],
@@ -95,24 +89,22 @@ exports[`log supports text endpoint 1`] = `
         "serverIp": "::ffff:127.0.0.1:50000",
         "userAgent": "curl/7.64.1",
       },
+      "httpRequestBody": undefined,
+      "httpRequestHeaders": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "text/plain",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+      "httpResponseBody": undefined,
+      "httpResponseHeaders": {
+        "x-powered-by": "Express",
+      },
       "labels": {
         "event": "http:request",
-      },
-      "request": {
-        "headers": {
-          "accept-encoding": "gzip, deflate",
-          "connection": "close",
-          "content-length": "13",
-          "content-type": "text/plain",
-          "host": "127.0.0.1:50000",
-          "referer": "https://example.com/",
-          "user-agent": "curl/7.64.1",
-        },
-      },
-      "response": {
-        "headers": {
-          "x-powered-by": "Express",
-        },
       },
     },
   ],
@@ -125,29 +117,25 @@ exports[`log supports text endpoint 1`] = `
         "responseSize": "212",
         "status": 200,
       },
+      "httpRequestBody": "{ "test": 1 }",
+      "httpRequestHeaders": {
+        "accept-encoding": "gzip, deflate",
+        "connection": "close",
+        "content-length": "13",
+        "content-type": "text/plain",
+        "host": "127.0.0.1:50000",
+        "referer": "https://example.com/",
+        "user-agent": "curl/7.64.1",
+      },
+      "httpResponseBody": "{ "test": 1 }",
+      "httpResponseHeaders": {
+        "content-length": "13",
+        "content-type": "text/html; charset=utf-8",
+        "etag": "W/"d-1RPzMXJoVFsid1wYU/S8C5v43Kc"",
+        "x-powered-by": "Express",
+      },
       "labels": {
         "event": "http:response",
-      },
-      "request": {
-        "body": "{ "test": 1 }",
-        "headers": {
-          "accept-encoding": "gzip, deflate",
-          "connection": "close",
-          "content-length": "13",
-          "content-type": "text/plain",
-          "host": "127.0.0.1:50000",
-          "referer": "https://example.com/",
-          "user-agent": "curl/7.64.1",
-        },
-      },
-      "response": {
-        "body": "{ "test": 1 }",
-        "headers": {
-          "content-length": "13",
-          "content-type": "text/html; charset=utf-8",
-          "etag": "W/"d-1RPzMXJoVFsid1wYU/S8C5v43Kc"",
-          "x-powered-by": "Express",
-        },
       },
     },
   ],
