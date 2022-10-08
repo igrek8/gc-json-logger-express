@@ -1,6 +1,4 @@
-import { OutgoingHttpHeaders } from 'http';
-
 export interface LogResponse {
-  headers: OutgoingHttpHeaders;
+  headers: Record<string, string>;
   body?: unknown;
 }

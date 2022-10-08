@@ -3,6 +3,7 @@ import { Logger, Severity } from 'gc-json-logger';
 import ms from 'ms';
 
 import { LogTransformFunction } from './types/LogTransformFunction';
+import { clone } from './utils/clone';
 
 const passThrough: LogTransformFunction = (_req, _res, entry) => entry;
 
@@ -48,14 +49,14 @@ export function log(transform: LogTransformFunction = passThrough) {
             serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
             referer: req.header('Referer'),
           },
-          request: {
+          request: clone({
             headers: req.headers,
             body: req.body,
-          },
-          response: {
+          }),
+          response: clone({
             headers: res.getHeaders(),
             body: _body,
-          },
+          }),
         },
       });
       logger.log(entry.severity, entry.message, entry.meta);
@@ -79,14 +80,14 @@ export function log(transform: LogTransformFunction = passThrough) {
               responseSize: req.socket.bytesWritten.toString(),
               status: res.statusCode,
             },
-            request: {
+            request: clone({
               headers: req.headers,
               body: req.body,
-            },
-            response: {
+            }),
+            response: clone({
               headers: res.getHeaders(),
               body: _body,
-            },
+            }),
           },
         });
         logger.log(entry.severity, entry.message, entry.meta);

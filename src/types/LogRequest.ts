@@ -1,6 +1,4 @@
-import { IncomingHttpHeaders } from 'http';
-
 export interface LogRequest {
-  headers: IncomingHttpHeaders;
+  headers: Record<string, string>;
   body?: unknown;
 }
