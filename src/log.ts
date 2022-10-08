@@ -33,8 +33,11 @@ export function log(transform: LogTransformFunction = passThrough) {
     try {
       const entry = transform(req, res, {
         severity: Severity.INFO,
-        message: `${res.statusCode} ${req.method} ${req.url}`,
+        message: `${req.method} ${req.url}`,
         meta: {
+          labels: {
+            event: 'http:request',
+          },
           httpRequest: {
             protocol: `${req.protocol}/${req.httpVersion}`.toUpperCase(),
             requestSize: req.socket.bytesRead.toString(),
@@ -44,6 +47,14 @@ export function log(transform: LogTransformFunction = passThrough) {
             userAgent: req.header('User-Agent')?.toString(),
             serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
             referer: req.header('Referer'),
+          },
+          request: {
+            headers: req.headers,
+            body: req.body,
+          },
+          response: {
+            headers: res.getHeaders(),
+            body: _body,
           },
         },
       });
@@ -60,6 +71,9 @@ export function log(transform: LogTransformFunction = passThrough) {
           severity: Severity.INFO,
           message: `${res.statusCode} ${req.method} ${req.url} (${latency})`,
           meta: {
+            labels: {
+              event: 'http:response',
+            },
             httpRequest: {
               latency,
               responseSize: req.socket.bytesWritten.toString(),

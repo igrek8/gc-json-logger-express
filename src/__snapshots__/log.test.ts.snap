@@ -4,7 +4,7 @@ exports[`log supports json endpoint 1`] = `
 [
   [
     200,
-    "200 POST /json?key=1",
+    "POST /json?key=1",
     {
       "httpRequest": {
         "protocol": "HTTP/1.1",
@@ -16,6 +16,27 @@ exports[`log supports json endpoint 1`] = `
         "serverIp": "::ffff:127.0.0.1:50000",
         "userAgent": "curl/7.64.1",
       },
+      "labels": {
+        "event": "http:request",
+      },
+      "request": {
+        "body": undefined,
+        "headers": {
+          "accept-encoding": "gzip, deflate",
+          "connection": "close",
+          "content-length": "13",
+          "content-type": "application/json",
+          "host": "127.0.0.1:50000",
+          "referer": "https://example.com/",
+          "user-agent": "curl/7.64.1",
+        },
+      },
+      "response": {
+        "body": undefined,
+        "headers": {
+          "x-powered-by": "Express",
+        },
+      },
     },
   ],
   [
@@ -26,6 +47,9 @@ exports[`log supports json endpoint 1`] = `
         "latency": "0ms",
         "responseSize": "216",
         "status": 200,
+      },
+      "labels": {
+        "event": "http:response",
       },
       "request": {
         "body": {
@@ -61,7 +85,7 @@ exports[`log supports text endpoint 1`] = `
 [
   [
     200,
-    "200 POST /text?key=1",
+    "POST /text?key=1",
     {
       "httpRequest": {
         "protocol": "HTTP/1.1",
@@ -73,6 +97,27 @@ exports[`log supports text endpoint 1`] = `
         "serverIp": "::ffff:127.0.0.1:50000",
         "userAgent": "curl/7.64.1",
       },
+      "labels": {
+        "event": "http:request",
+      },
+      "request": {
+        "body": undefined,
+        "headers": {
+          "accept-encoding": "gzip, deflate",
+          "connection": "close",
+          "content-length": "13",
+          "content-type": "text/plain",
+          "host": "127.0.0.1:50000",
+          "referer": "https://example.com/",
+          "user-agent": "curl/7.64.1",
+        },
+      },
+      "response": {
+        "body": undefined,
+        "headers": {
+          "x-powered-by": "Express",
+        },
+      },
     },
   ],
   [
@@ -83,6 +128,9 @@ exports[`log supports text endpoint 1`] = `
         "latency": "0ms",
         "responseSize": "212",
         "status": 200,
+      },
+      "labels": {
+        "event": "http:response",
       },
       "request": {
         "body": "{ "test": 1 }",
