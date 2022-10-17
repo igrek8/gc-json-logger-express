@@ -10,7 +10,8 @@ const passThrough: LogTransformFunction = (_req, _res, entry) => entry;
 export function log(transform: LogTransformFunction = passThrough) {
   return (req: Request, res: Response, next: NextFunction) => {
     const start = new Date();
-    const logger = Logger.getLogger();
+    const uuid = res.getHeader('x-response-id')?.toString();
+    const logger = Logger.getLogger(uuid);
 
     /**
      * Capture outgoing response body
@@ -60,7 +61,7 @@ export function log(transform: LogTransformFunction = passThrough) {
       /* istanbul ignore next */
     }
 
-    res.once('finish', async () => {
+    res.once('finish', () => {
       try {
         const end = new Date();
         const latency = ms(end.getTime() - start.getTime());
