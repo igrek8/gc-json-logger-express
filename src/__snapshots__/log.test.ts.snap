@@ -4,45 +4,20 @@ exports[`log supports json endpoint 1`] = `
 [
   [
     200,
-    "POST /json?key=1",
+    "200 POST /json?key=1 (0ms)",
     {
       "httpRequest": {
+        "latency": "0ms",
         "protocol": "HTTP/1.1",
         "referer": "https://example.com/",
         "remoteIp": "::ffff:127.0.0.1",
         "requestMethod": "POST",
         "requestSize": "224",
         "requestUrl": "http://127.0.0.1:50000/json?key=1",
-        "serverIp": "::ffff:127.0.0.1:50000",
-        "userAgent": "curl/7.64.1",
-      },
-      "httpRequestBody": undefined,
-      "httpRequestHeaders": {
-        "accept-encoding": "gzip, deflate",
-        "connection": "close",
-        "content-length": "13",
-        "content-type": "application/json",
-        "host": "127.0.0.1:50000",
-        "referer": "https://example.com/",
-        "user-agent": "curl/7.64.1",
-      },
-      "httpResponseBody": undefined,
-      "httpResponseHeaders": {
-        "x-powered-by": "Express",
-      },
-      "labels": {
-        "event": "http:request",
-      },
-    },
-  ],
-  [
-    200,
-    "200 POST /json?key=1 (0ms)",
-    {
-      "httpRequest": {
-        "latency": "0ms",
         "responseSize": "216",
+        "serverIp": "::ffff:127.0.0.1:50000",
         "status": 200,
+        "userAgent": "curl/7.64.1",
       },
       "httpRequestBody": {
         "test": 1,
@@ -65,9 +40,6 @@ exports[`log supports json endpoint 1`] = `
         "etag": "W/"a-0IjPMzN9x5tJczAzOeVnVWcl4yo"",
         "x-powered-by": "Express",
       },
-      "labels": {
-        "event": "http:response",
-      },
     },
   ],
 ]
@@ -77,45 +49,20 @@ exports[`log supports text endpoint 1`] = `
 [
   [
     200,
-    "POST /text?key=1",
+    "200 POST /text?key=1 (0ms)",
     {
       "httpRequest": {
+        "latency": "0ms",
         "protocol": "HTTP/1.1",
         "referer": "https://example.com/",
         "remoteIp": "::ffff:127.0.0.1",
         "requestMethod": "POST",
         "requestSize": "218",
         "requestUrl": "http://127.0.0.1:50000/text?key=1",
-        "serverIp": "::ffff:127.0.0.1:50000",
-        "userAgent": "curl/7.64.1",
-      },
-      "httpRequestBody": undefined,
-      "httpRequestHeaders": {
-        "accept-encoding": "gzip, deflate",
-        "connection": "close",
-        "content-length": "13",
-        "content-type": "text/plain",
-        "host": "127.0.0.1:50000",
-        "referer": "https://example.com/",
-        "user-agent": "curl/7.64.1",
-      },
-      "httpResponseBody": undefined,
-      "httpResponseHeaders": {
-        "x-powered-by": "Express",
-      },
-      "labels": {
-        "event": "http:request",
-      },
-    },
-  ],
-  [
-    200,
-    "200 POST /text?key=1 (0ms)",
-    {
-      "httpRequest": {
-        "latency": "0ms",
         "responseSize": "212",
+        "serverIp": "::ffff:127.0.0.1:50000",
         "status": 200,
+        "userAgent": "curl/7.64.1",
       },
       "httpRequestBody": "{ "test": 1 }",
       "httpRequestHeaders": {
@@ -133,9 +80,6 @@ exports[`log supports text endpoint 1`] = `
         "content-type": "text/html; charset=utf-8",
         "etag": "W/"d-1RPzMXJoVFsid1wYU/S8C5v43Kc"",
         "x-powered-by": "Express",
-      },
-      "labels": {
-        "event": "http:response",
       },
     },
   ],

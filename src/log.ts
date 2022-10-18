@@ -32,35 +32,6 @@ export function log(transform: LogTransformFunction = passThrough) {
       return res.send(body);
     };
 
-    try {
-      const entry = transform(req, res, {
-        severity: Severity.INFO,
-        message: `${req.method} ${req.url}`,
-        meta: {
-          labels: {
-            event: 'http:request',
-          },
-          httpRequest: {
-            protocol: `${req.protocol}/${req.httpVersion}`.toUpperCase(),
-            requestSize: req.socket.bytesRead.toString(),
-            remoteIp: req.ip,
-            requestUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
-            requestMethod: req.method,
-            userAgent: req.header('User-Agent')?.toString(),
-            serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
-            referer: req.header('Referer'),
-          },
-          httpRequestHeaders: clone(req.headers),
-          httpRequestBody: clone(req.body),
-          httpResponseHeaders: clone(res.getHeaders()),
-          httpResponseBody: clone(_body),
-        },
-      });
-      logger.log(entry.severity, entry.message, entry.meta);
-    } catch (err) {
-      /* istanbul ignore next */
-    }
-
     res.once('finish', () => {
       try {
         const end = new Date();
@@ -69,10 +40,15 @@ export function log(transform: LogTransformFunction = passThrough) {
           severity: Severity.INFO,
           message: `${res.statusCode} ${req.method} ${req.url} (${latency})`,
           meta: {
-            labels: {
-              event: 'http:response',
-            },
             httpRequest: {
+              protocol: `${req.protocol}/${req.httpVersion}`.toUpperCase(),
+              requestSize: req.socket.bytesRead.toString(),
+              remoteIp: req.ip,
+              requestUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+              requestMethod: req.method,
+              userAgent: req.header('User-Agent')?.toString(),
+              serverIp: `${req.socket.localAddress}:${req.socket.localPort}`,
+              referer: req.header('Referer'),
               latency,
               responseSize: req.socket.bytesWritten.toString(),
               status: res.statusCode,
