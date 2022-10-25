@@ -60,6 +60,6 @@
     "ms": "^2",
     "tslib": "^2",
     "express": "^4",
-    "gc-json-logger": "^0.0.5"
+    "gc-json-logger": "^0.0.7"
   }
 }
