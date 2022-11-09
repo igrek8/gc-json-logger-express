@@ -73,7 +73,7 @@
     "tslib": "^2",
     "ms": "^2",
     "express": "^4",
-    "gc-json-logger": "^0.0.7"
+    "gc-json-logger": "^1"
   },
   "runkitExampleFilename": "./runkit.js",
   "engines": {
