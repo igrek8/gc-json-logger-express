@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { Logger, Severity } from 'gc-json-logger';
-import ms from 'ms';
+import ms = require('ms');
 
 import { LogTransformFunction } from './types/LogTransformFunction';
 import { clone } from './utils/clone';

@@ -1,7 +1,7 @@
 # [Structured logging](https://cloud.google.com/logging/docs/structured-logging) for express.js app in GKE
 
 [![NPM](https://badgen.net/npm/v/gc-json-logger-express)](https://www.npmjs.com/gc-json-logger-express)
-[![Coverage Status](https://coveralls.io/repos/github/igrek8/gc-json-logger-express/badge.svg?branch=main)](https://coveralls.io/github/igrek8/gc-json-logger-express?branch=main)
+[![Coverage](https://codecov.io/gh/igrek8/gc-json-logger-express/branch/main/graph/badge.svg)](https://codecov.io/gh/igrek8/gc-json-logger-express)
 ![Health](https://badgen.net/github/checks/igrek8/gc-json-logger-express)
 ![License](https://badgen.net/github/license/igrek8/gc-json-logger-express)
 [![Runkit](https://badgen.net/badge/runkit/playground/cyan)](https://npm.runkit.com/gc-json-logger-express)
@@ -20,7 +20,7 @@ yarn add gc-json-logger gc-json-logger-express
 
 ## View in Google Cloud Logging
 
-![Google Cloud Logging](./docs/images/google-cloud-logging.png)
+![Google Cloud Logging](./media/google-cloud-logging.png)
 
 ## Integration
 

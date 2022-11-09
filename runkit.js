@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const { Logger, Severity } = require('gc-json-logger');
 const { log } = require('gc-json-logger-express');
 const express = require('express');

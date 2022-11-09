@@ -1,7 +1,7 @@
-import express from 'express';
+import * as express from 'express';
 import { Logger } from 'gc-json-logger';
 import { Server } from 'http';
-import request from 'supertest';
+import * as request from 'supertest';
 import { log } from './log';
 
 jest.useFakeTimers();
