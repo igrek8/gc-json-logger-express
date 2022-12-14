@@ -11,7 +11,8 @@ export function log(transform: LogTransformFunction = passThrough) {
   return (req: Request, res: Response, next: NextFunction) => {
     const start = new Date();
     const uuid = res.getHeader('x-response-id')?.toString();
-    const logger = Logger.getLogger(uuid);
+    const logger = new Logger(uuid);
+    Logger.setLogger(logger);
 
     /**
      * Capture outgoing response body
