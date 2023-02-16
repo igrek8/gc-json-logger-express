@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[types/LogTransformFunction.ts:4](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogTransformFunction.ts#L4)
+[types/LogTransformFunction.ts:4](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogTransformFunction.ts#L4)
 
 ## Functions
 
@@ -76,4 +76,4 @@
 
 #### Defined in
 
-[log.ts:10](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/log.ts#L10)
+[log.ts:10](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/log.ts#L10)

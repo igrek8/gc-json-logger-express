@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[types/LogEntry.ts:6](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntry.ts#L6)
+[types/LogEntry.ts:6](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntry.ts#L6)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[types/LogEntry.ts:7](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntry.ts#L7)
+[types/LogEntry.ts:7](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntry.ts#L7)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[types/LogEntry.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntry.ts#L5)
+[types/LogEntry.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntry.ts#L5)

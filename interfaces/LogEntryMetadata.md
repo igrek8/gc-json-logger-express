@@ -30,7 +30,7 @@ ILogEntryMetadata.httpRequest
 
 #### Defined in
 
-[types/LogEntryMetadata.ts:4](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntryMetadata.ts#L4)
+[types/LogEntryMetadata.ts:4](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntryMetadata.ts#L4)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[types/LogEntryMetadata.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntryMetadata.ts#L5)
+[types/LogEntryMetadata.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntryMetadata.ts#L5)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[types/LogEntryMetadata.ts:6](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntryMetadata.ts#L6)
+[types/LogEntryMetadata.ts:6](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntryMetadata.ts#L6)
 
 ___
 
@@ -60,7 +60,7 @@ ___
 
 #### Defined in
 
-[types/LogEntryMetadata.ts:7](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntryMetadata.ts#L7)
+[types/LogEntryMetadata.ts:7](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntryMetadata.ts#L7)
 
 ___
 
@@ -70,4 +70,4 @@ ___
 
 #### Defined in
 
-[types/LogEntryMetadata.ts:8](https://github.com/igrek8/gc-json-logger-express/blob/f7166de/src/types/LogEntryMetadata.ts#L8)
+[types/LogEntryMetadata.ts:8](https://github.com/igrek8/gc-json-logger-express/blob/6eabb6e/src/types/LogEntryMetadata.ts#L8)
