@@ -10,9 +10,6 @@ const passThrough: LogTransformFunction = (_req, _res, entry) => entry;
 export function log(transform: LogTransformFunction = passThrough) {
   return (req: Request, res: Response, next: NextFunction) => {
     const start = new Date();
-    const uuid = res.getHeader('x-response-id')?.toString();
-    const logger = new Logger(uuid);
-    Logger.setLogger(logger);
 
     /**
      * Capture outgoing response body
@@ -60,7 +57,7 @@ export function log(transform: LogTransformFunction = passThrough) {
             httpResponseBody: clone(_body),
           },
         });
-        logger.log(entry.severity, entry.message, entry.meta);
+        Logger.log(entry.severity, entry.message, entry.meta);
       } catch (err) {
         /* istanbul ignore next */
       }
