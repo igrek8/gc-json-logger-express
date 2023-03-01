@@ -28,4 +28,4 @@
 
 #### Defined in
 
-[types/LogOptions.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/b41d52e/src/types/LogOptions.ts#L5)
+[types/LogOptions.ts:5](https://github.com/igrek8/gc-json-logger-express/blob/f043469/src/types/LogOptions.ts#L5)
