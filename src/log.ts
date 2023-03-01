@@ -58,9 +58,8 @@ export function log(transform: LogTransformFunction = passThrough) {
           },
         });
         Logger.log(entry.severity, entry.message, entry.meta);
-      } catch (err) {
-        /* istanbul ignore next */
-      }
+        /* c8 ignore next */
+      } catch {} // eslint-disable-line no-empty
     });
     next();
   };
