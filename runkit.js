@@ -19,6 +19,6 @@ app.use(
 
 app.use(express.text());
 app.use(express.json());
-app.use((req, res) => res.status(500).send(req.body));
+app.use((_req, res) => res.status(200).send('Hello world!'));
 
 app.listen(3000);
