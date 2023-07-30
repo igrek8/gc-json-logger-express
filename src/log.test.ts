@@ -15,8 +15,8 @@ describe('log', () => {
       .use(log())
       .use(express.json())
       .use(express.text())
-      .post('/json', (req, res) => res.status(200).json(req.body))
-      .post('/text', (req, res) => res.status(200).send(req.body))
+      .post('/json', (_req, res) => res.status(200).json({ test: 1 }))
+      .post('/text', (_req, res) => res.status(200).send('{ "test": 1 }'))
       .listen(50000, done);
   });
 
