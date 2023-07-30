@@ -1,14 +1,10 @@
-# [Structured logging](https://cloud.google.com/logging/docs/structured-logging) for express.js app in GKE
+# Logger for [Structured Logging](https://cloud.google.com/logging/docs/structured-logging) with [Asynchronous Context Tracking](https://nodejs.org/api/async_context.html#class-asynclocalstorage) (Stability: 2 - Stable) to log HTTP traffic in Express.JS in GKE
 
 [![NPM](https://badgen.net/npm/v/gc-json-logger-express)](https://www.npmjs.com/gc-json-logger-express)
 [![Coverage](https://codecov.io/gh/igrek8/gc-json-logger-express/branch/main/graph/badge.svg)](https://codecov.io/gh/igrek8/gc-json-logger-express)
 ![Health](https://badgen.net/github/checks/igrek8/gc-json-logger-express)
 ![License](https://badgen.net/github/license/igrek8/gc-json-logger-express)
 [![Runkit](https://badgen.net/badge/runkit/playground/cyan)](https://npm.runkit.com/gc-json-logger-express)
-
-## Precaution
-
-The logger makes use of [`async_hooks`](https://nodejs.org/api/async_hooks.html#async-hooks) module which is currently **experimental**. However, the use of `async_hooks` mechanism was at basic.
 
 ## Installation
 
@@ -74,7 +70,7 @@ curl -X POST "http://localhost:3000/echo" \
     "serverIp": "::ffff:127.0.0.1:3000"
   },
   "logging.googleapis.com/operation": {
-    "id": "135af3bd-1cde-4b72-92ac-3106e7514714"
+    "id": "Application"
   }
 }
 ```
@@ -92,7 +88,7 @@ curl -X POST "http://localhost:3000/echo" \
     "status": 500
   },
   "logging.googleapis.com/operation": {
-    "id": "135af3bd-1cde-4b72-92ac-3106e7514714"
+    "id": "Application"
   },
   "meta": {
     "request": {
